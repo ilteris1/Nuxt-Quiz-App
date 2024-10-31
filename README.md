@@ -5,5 +5,5 @@
 
 ![2](https://github.com/user-attachments/assets/81d2e1fc-1f2f-4a70-897b-161f711e91fa)
 
-![3](https://github.com/user-attachments/assets/a871bfe3-9ec2-4859-b6ff-04bde33c5900)
+![3](https://github.com/user-attachments/assets/76fabeb6-7920-46c6-9322-493768428d4f)
 
