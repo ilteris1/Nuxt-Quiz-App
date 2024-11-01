@@ -4,10 +4,10 @@
       <div v-if="!quizStarted" class="welcome-screen">
         <img src="@/assets/logo.png" alt="Turkish Club Logo" class="logo" />
         <h2 class="app-title1">Турецкий клуб НИУ ВШЭ</h2>
-        <h2 class="app-title2">Unity Day 2024 Quiz</h2>
-<p>1. You will have only 10 seconds per each question.</p>
-<p>2. You can't select any option once time goes off.</p>
-<p>3. You'll get points on the basis of your correct answers and your total time.</p>
+        <h2 class="app-title2"><b>Викторина ко Дню народного единства 2024</b> - Unity Day 2024 Quiz</h2>
+        <p><b>1. У вас будет только 10 секунд на каждый вопрос.</b> - You will have only 10 seconds per each question.</p> 
+        <p><b>2. Вы не можете выбрать ни один вариант, как только время истечет.</b> - You can't select any option once time goes off.</p> 
+        <p><b>3. Вы получите очки в зависимости от ваших правильных ответов и общего времени.</b> - You'll get points on the basis of your correct answers and your total time.</p>
 
         <button 
           @click="startQuiz" 
@@ -16,27 +16,31 @@
           :class="{ 'disabled-button': !canStartQuiz }"
         >
           <i class="icon-play"></i> 
-          <span v-if="!canStartQuiz">The quiz will be started by the moderator.</span>
-          <span v-else>Start Quiz</span>
+          <span v-if="!canStartQuiz"><b>Викторину начнет модератор.</b> - The quiz will be started by the moderator.</span>
+<span v-else><b>Начать викторину</b> - Start Quiz</span>
+
         </button>
 
 
 
         <div class="leaderboard">
           <h2 class="leaderboard-title">
-            <i class="icon-trophy"></i> Top Scores
+            <i class="icon-trophy"></i> Лучшие бомбардиры - Top Scores
           </h2>
           <ul class="leaderboard-list">
             <li v-for="(entry, index) in leaderboard" :key="entry.id" class="leaderboard-item">
               <span class="leaderboard-rank">{{ index + 1 }}</span>
               <span class="leaderboard-name">{{ entry.name }}</span>
-              <span class="leaderboard-score">{{ entry.score }} Point</span>&nbsp;&nbsp;
+              <span class="leaderboard-score">{{ entry.score }} баллов</span>&nbsp;&nbsp;
               <span class="leaderboard-time">
                 {{ entry.time_spent }}s <i class="icon-clock"></i>
               </span>
             </li>
           </ul>
         </div>
+
+
+
       </div>
 
       <div v-else-if="currentQuestionIndex < questions.length" class="question-screen">
@@ -45,7 +49,7 @@
             <i class="icon-list"></i> {{ currentQuestionIndex + 1 }} / {{ questions.length }}
           </div>
           <div class="timer">
-            <i class="icon-clock"></i> {{ timeLeft }}s
+            <i class="icon-clock"></i> {{ timeLeft }} с
           </div>
         </div>
         <h2 class="question-text">{{ currentQuestion.question }}</h2>
@@ -66,21 +70,23 @@
       </div>
 
       <div v-else class="result-screen">
-        <h2 class="result-title">Quiz Completed!</h2>
+        <h2 class="result-title">Тест завершен! - Quiz Completed!</h2>
         <div class="result-score">
           <i class="icon-star"></i> {{ score }} / {{ questions.length }}
         </div>
         <p class="result-time">
-          <i class="icon-clock"></i> Time: {{ totalTime }} seconds
-        </p>
+  <i class="icon-clock"></i> <b>Время: {{ totalTime }} секунд</b> - Time: {{ totalTime }} seconds
+</p>
 
-        <p class="result-time">
-          To claim your prize, please don't type a random name!
-        </p>
+
+<p class="result-time">
+  <b>Чтобы получить свой приз, пожалуйста, не вводите случайное имя!</b> - To claim your prize, please don't type a random name!
+</p>
+
         <input 
           v-model="name" 
           type="text" 
-          placeholder="Enter your name" 
+          placeholder="Введите ваше имя - Enter your name" 
           class="name-input"
         >
         <div v-if="isSubmitting" class="submitting-view">
@@ -92,33 +98,52 @@
           :class="{ 'disabled-button': scoreSubmitted }" 
           :disabled="!name || scoreSubmitted"
         >
-          <i class="icon-save"></i> Save Score
+          <i class="icon-save"></i>  <b>Сохранить результат</b> &nbsp;- Save Score
         </button>
 
         <button @click="replayQuiz" class="replay-button">
-          <i class="icon-refresh"></i> Leaderboard
+          <i class="icon-refresh"></i> <b>Таблица лидеров</b> &nbsp;- Leaderboard
         </button>
       </div>
+
+
+
+
+
     </div>
+
+
+
+
+    <div v-if="!quizStarted">
+    <a href="https://github.com/ilteris1/Nuxt-Quiz-App" target="_blank" rel="noopener noreferrer" class="github-button">
+          <GithubIcon class="github-icon" />
+          Get the codes of this project on GitHub
+        </a>
+      </div>
   </div>
+
+
+  
 </template>
 
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { supabase } from '@/data/supabaseClient';
+import { GithubIcon } from 'lucide-vue-next';
 
 const questions = ref([
   {
-    question: "What is the capital city of Türkiye?",
+    question: "Какой город является столицей Турции? - What is the capital city of Türkiye?",
     answers: [
-      { text: "Istanbul", isCorrect: false },
-      { text: "Izmir", isCorrect: false },
-      { text: "Ankara", isCorrect: true },
-      { text: "Antalya", isCorrect: false },
+      { text: "Стамбул - Istanbul", isCorrect: false },
+      { text: "Измир - Izmir", isCorrect: false },
+      { text: "Анкара - Ankara", isCorrect: true },
+      { text: "Анталия - Antalya", isCorrect: false },
     ],
   },
   {
-    question: "How many countries does Türkiye have land borders with?",
+    question: "Сколько стран имеет границы с Турцией? - How many countries does Türkiye have land borders with?",
     answers: [
       { text: "4", isCorrect: false },
       { text: "6", isCorrect: false },
@@ -127,16 +152,16 @@ const questions = ref([
     ],
   },
   {
-    question: "Where does Türkiye rank in terms of most visited destinations by international tourist arrivals in 2022?",
+    question: "На каком месте находится Турция по количеству международных туристов в 2022 году? - Where does Türkiye rank in terms of most visited destinations by international tourist arrivals in 2022?",
     answers: [
-      { text: "4th", isCorrect: true },
-      { text: "6th", isCorrect: false },
-      { text: "7th", isCorrect: false },
-      { text: "9th", isCorrect: false },
+      { text: "4-й - 4th", isCorrect: true },
+      { text: "6-й - 6th", isCorrect: false },
+      { text: "7-й - 7th", isCorrect: false },
+      { text: "9-й - 9th", isCorrect: false },
     ],
   },
   {
-    question: "In which year was Istanbul conquered?",
+    question: "В каком году был завоеван Стамбул? - In which year was Istanbul conquered?",
     answers: [
       { text: "1560", isCorrect: false },
       { text: "1780", isCorrect: false },
@@ -145,7 +170,7 @@ const questions = ref([
     ],
   },
   {
-    question: "In which year was the Turkish Republic established?",
+    question: "В каком году была основана Турецкая Республика? - In which year was the Turkish Republic established?",
     answers: [
       { text: "1913", isCorrect: false },
       { text: "1923", isCorrect: true },
@@ -154,7 +179,7 @@ const questions = ref([
     ],
   },
   {
-    question: "How many seas is Türkiye surrounded by?",
+    question: "Сколько морей омывает Турцию? - How many seas is Türkiye surrounded by?",
     answers: [
       { text: "2", isCorrect: false },
       { text: "3", isCorrect: true },
@@ -163,33 +188,35 @@ const questions = ref([
     ],
   },
   {
-    question: "Which of the following countries does not have a border with Türkiye?",
+    question: "Какая из следующих стран не имеет границы с Турцией? - Which of the following countries does not have a border with Türkiye?",
     answers: [
-      { text: "Iran", isCorrect: false },
-      { text: "Bulgaria", isCorrect: false },
-      { text: "Azerbaijan", isCorrect: false },
-      { text: "Lebanon", isCorrect: true },
+      { text: "Иран - Iran", isCorrect: false },
+      { text: "Болгария - Bulgaria", isCorrect: false },
+      { text: "Азербайджан - Azerbaijan", isCorrect: false },
+      { text: "Ливан - Lebanon", isCorrect: true },
     ],
   },
   {
-    question: "What is the population of Türkiye by 2024?",
+    question: "Каково население Турции по состоянию на 2024 год? - What is the population of Türkiye by 2024?",
     answers: [
-      { text: "91 million", isCorrect: false },
-      { text: "88 million", isCorrect: false },
-      { text: "85 million", isCorrect: true },
-      { text: "79 million", isCorrect: false },
+      { text: "91 миллион - 91 million", isCorrect: false },
+      { text: "88 миллионов - 88 million", isCorrect: false },
+      { text: "85 миллионов - 85 million", isCorrect: true },
+      { text: "79 миллионов - 79 million", isCorrect: false },
     ],
   },
   {
-    question: "In which year did Türkiye win the Eurovision Song Contest?",
+    question: "В каком году Турция выиграла конкурс Евровидение? - In which year did Türkiye win the Eurovision Song Contest?",
     answers: [
-      { text: "2010 / Manga – We Could Be The Same", isCorrect: false },
-      { text: "2003 / Sertab Erener – Every Way That I Can", isCorrect: true },
-      { text: "2009 / Hadise – Düm Tek Tek", isCorrect: false },
-      { text: "2004 / Athena – For Real", isCorrect: false },
+      { text: "2010 / Manga – We Could Be The Same - 2010 / Manga – We Could Be The Same", isCorrect: false },
+      { text: "2003 / Сертаб Эренер – Every Way That I Can - 2003 / Sertab Erener – Every Way That I Can", isCorrect: true },
+      { text: "2009 / Хадисе – Düm Tek Tek - 2009 / Hadise – Düm Tek Tek", isCorrect: false },
+      { text: "2004 / Афена – For Real - 2004 / Athena – For Real", isCorrect: false },
     ],
   },
 ]);
+
+
 
 const currentQuestionIndex = ref(0);
 const score = ref(0);
@@ -340,6 +367,8 @@ onBeforeUnmount(() => {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
+
+
 .logo {
   display: block;
   margin: 0 auto; /* Center the logo */
@@ -353,10 +382,10 @@ onBeforeUnmount(() => {
   background: linear-gradient(135deg, #40e0d0, #2a5298);
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #333;
-  
   padding: 1.5rem;
 }
 
@@ -391,6 +420,39 @@ onBeforeUnmount(() => {
   text-align: center;
   margin-bottom: 2rem;
 }
+
+
+
+.github-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #171815;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 89%;
+  margin-top: 2em;
+  text-decoration: none;
+}
+
+.github-button:hover {
+  background-color: #2c3238;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.github-icon {
+  margin-right: 0.5rem;
+}
+
+
+
+
 
 .start-button, .answer-button, .save-button, .replay-button {
   background-color: #40e0d0;
