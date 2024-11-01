@@ -1,7 +1,8 @@
 # Nuxt Quiz App
  Nuxt-based quiz app with timing, leaderboard, and moderator functionalities.
 
-![1](https://github.com/user-attachments/assets/e43e2385-d388-4e6f-8f02-aa89bd9e55b7)
-![2](https://github.com/user-attachments/assets/6ffe6324-848b-4065-afca-5bea1ac83272)
-![3](https://github.com/user-attachments/assets/c1e4060c-4bf0-4d98-a47f-4a58a9e19adc)
-![4](https://github.com/user-attachments/assets/b7b4937e-4ddf-4e62-853c-cb0015f21dd0)
+![1](https://github.com/user-attachments/assets/190f70e2-148e-410e-b7fe-8f8a5ef54b7f)
+![2](https://github.com/user-attachments/assets/2299e577-d481-4e96-ac38-cd92f6ecdfd6)
+![3](https://github.com/user-attachments/assets/1cccb616-24db-4333-9714-65f7ba1dbb5f)
+![4](https://github.com/user-attachments/assets/53b1872a-2d26-4505-81b6-02fda68bf3a5)
+
