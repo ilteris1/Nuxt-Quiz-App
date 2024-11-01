@@ -151,69 +151,6 @@ const questions = ref([
       { text: "10", isCorrect: false },
     ],
   },
-  {
-    question: "На каком месте находится Турция по количеству международных туристов в 2022 году? - Where does Türkiye rank in terms of most visited destinations by international tourist arrivals in 2022?",
-    answers: [
-      { text: "4-й - 4th", isCorrect: true },
-      { text: "6-й - 6th", isCorrect: false },
-      { text: "7-й - 7th", isCorrect: false },
-      { text: "9-й - 9th", isCorrect: false },
-    ],
-  },
-  {
-    question: "В каком году был завоеван Стамбул? - In which year was Istanbul conquered?",
-    answers: [
-      { text: "1560", isCorrect: false },
-      { text: "1780", isCorrect: false },
-      { text: "1453", isCorrect: true },
-      { text: "1580", isCorrect: false },
-    ],
-  },
-  {
-    question: "В каком году была основана Турецкая Республика? - In which year was the Turkish Republic established?",
-    answers: [
-      { text: "1913", isCorrect: false },
-      { text: "1923", isCorrect: true },
-      { text: "1985", isCorrect: false },
-      { text: "1922", isCorrect: false },
-    ],
-  },
-  {
-    question: "Сколько морей омывает Турцию? - How many seas is Türkiye surrounded by?",
-    answers: [
-      { text: "2", isCorrect: false },
-      { text: "3", isCorrect: true },
-      { text: "4", isCorrect: false },
-      { text: "5", isCorrect: false },
-    ],
-  },
-  {
-    question: "Какая из следующих стран не имеет границы с Турцией? - Which of the following countries does not have a border with Türkiye?",
-    answers: [
-      { text: "Иран - Iran", isCorrect: false },
-      { text: "Болгария - Bulgaria", isCorrect: false },
-      { text: "Азербайджан - Azerbaijan", isCorrect: false },
-      { text: "Ливан - Lebanon", isCorrect: true },
-    ],
-  },
-  {
-    question: "Каково население Турции по состоянию на 2024 год? - What is the population of Türkiye by 2024?",
-    answers: [
-      { text: "91 миллион - 91 million", isCorrect: false },
-      { text: "88 миллионов - 88 million", isCorrect: false },
-      { text: "85 миллионов - 85 million", isCorrect: true },
-      { text: "79 миллионов - 79 million", isCorrect: false },
-    ],
-  },
-  {
-    question: "В каком году Турция выиграла конкурс Евровидение? - In which year did Türkiye win the Eurovision Song Contest?",
-    answers: [
-      { text: "2010 / Manga – We Could Be The Same - 2010 / Manga – We Could Be The Same", isCorrect: false },
-      { text: "2003 / Сертаб Эренер – Every Way That I Can - 2003 / Sertab Erener – Every Way That I Can", isCorrect: true },
-      { text: "2009 / Хадисе – Düm Tek Tek - 2009 / Hadise – Düm Tek Tek", isCorrect: false },
-      { text: "2004 / Афена – For Real - 2004 / Athena – For Real", isCorrect: false },
-    ],
-  },
 ]);
 
 
